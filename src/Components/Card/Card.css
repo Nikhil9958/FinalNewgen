@@ -54,6 +54,7 @@
 
 .cardCloseBtn {
     float: right;
+    cursor: pointer;
 }
 
 .formLabel {

@@ -10,6 +10,7 @@ import { Button, Grid, InputLabel } from '@mui/material';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import CheckBox from '../Checkbox/Checkbox'
+import { v4 as uuidv4 } from 'uuid';
 
 
 import './BasicTabs.css'
@@ -83,6 +84,11 @@ export default function BasicTabs() {
 
   const handleClickAdd = () => {
     setDataArray([...dataArray, {
+      id: uuidv4(),
+      // 'version': version,
+      // 'timeStamp': date,
+      // 'algorithm': algorithm,
+      // 'cluster': cluster,
       versionKey: 'V1',
       versionValue: 'V1',
       isDeletable: false,
@@ -90,6 +96,12 @@ export default function BasicTabs() {
       timeStampKey: 'T1',
       timeStampValue: '23/08/2022 1:54pm',
       isDeletable: true,
+
+      // algorithmKey: 'RFC',
+      // algorithmValue: 'RFC',
+
+      // clusterKey: 'C1',
+      // clusterValue: 'Cluster Index - 1'
     }])
   };
   return (
@@ -124,8 +136,10 @@ export default function BasicTabs() {
               dataArray.map(curr => (
                 <Card
                   key={curr.id}
+                  name={curr.id}
                   data={curr}
-
+                  allCards = {dataArray}
+                  removeCard = {setDataArray}
                 />
               ))
             }

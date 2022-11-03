@@ -7,10 +7,16 @@ import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
 import './Card.css'
 
 const Card = (props) => {
+    const handleCardClose = () => {
+        console.log("clicked!");
+        console.log(props);
+        const filteredCards = props.allCards.filter((card) => card.id !== props.name );
+        props.removeCard(filteredCards);
+    }
 
     return (
         <div className='fixedCard'>
-           {props.data.isDeletable && <CancelRoundedIcon fontSize='small' color='disabled' className = 'cardCloseBtn'/>}
+            {props.data.isDeletable && <CancelRoundedIcon onClick={handleCardClose} fontSize='small' color='disabled' className='cardCloseBtn' />}
             <Grid container spacing={0.5}>
                 <Grid item >
                     <InputLabel id="version-label" className='formLabel'>Version</InputLabel>
@@ -33,7 +39,7 @@ const Card = (props) => {
                 <Grid item>
                     <InputLabel id="cluster-label" className='formLabel'>Cluster</InputLabel>
                     <Select value={props.data.clusterKey} labelId='cluster-label' className='cluster'>
-                        <MenuItem value={props.data.clusterKey}>{props.data.clusterValue}</MenuItem>
+                        {props.data.clusterKey ? <MenuItem value={props.data.clusterKey}>{props.data.clusterValue}</MenuItem>:<MenuItem value='C1'>Cluster Index - 1</MenuItem>}
                         <MenuItem value={'C2'}>Cluster Index - 2</MenuItem>
                         <MenuItem value={'C3'}>Cluster Index - 3</MenuItem>
                         <MenuItem value={'C4'}>Cluster Index - 4</MenuItem>
@@ -43,7 +49,7 @@ const Card = (props) => {
                         <MenuItem value={'C5'}>Cluster Index - 8</MenuItem>
                         <MenuItem value={'C5'}>Cluster Index - 9</MenuItem>
                         <MenuItem value={'C5'}>Cluster Index - 10</MenuItem>
-                        
+
                     </Select>
                 </Grid>
             </Grid>
