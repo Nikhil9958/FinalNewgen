@@ -13,7 +13,7 @@ const Card = (props) => {
            {props.data.isDeletable && <CancelRoundedIcon fontSize='small' color='disabled' className = 'cardCloseBtn'/>}
             <Grid container spacing={0.5}>
                 <Grid item >
-                    <InputLabel id="version-label" className='formLabel'>Age</InputLabel>
+                    <InputLabel id="version-label" className='formLabel'>Version</InputLabel>
                     <Select value={props.data.versionKey} labelId='version-label' className='version'>
                         <MenuItem value={props.data.versionKey}>{props.data.versionValue}</MenuItem>
                     </Select>
