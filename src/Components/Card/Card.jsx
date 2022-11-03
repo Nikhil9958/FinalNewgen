@@ -20,26 +20,30 @@ const Card = (props) => {
                 </Grid>
                 <Grid item >
                     <InputLabel id="timestamp-label" className='formLabel'>TimeStamp</InputLabel>
-                    <Select value={'V1'} labelId='timestamp-label' className='timeStamp'>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                    <Select value={props.data.timeStampKey} labelId='timestamp-label' className='timeStamp'>
+                        <MenuItem value={props.data.timeStampKey}>{props.data.timeStampValue}</MenuItem>
                     </Select>
                 </Grid>
                 <Grid item>
                     <InputLabel id="algorithm-label" className='formLabel'>Algorithm</InputLabel>
-                    <Select value={'V1'} labelId='algorithm-label' className='algorithm'>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                    <Select value={props.data.algorithmKey} labelId='algorithm-label' className='algorithm'>
+                        <MenuItem value={props.data.algorithmKey}>{props.data.algorithmValue}</MenuItem>
                     </Select>
                 </Grid>
                 <Grid item>
                     <InputLabel id="cluster-label" className='formLabel'>Cluster</InputLabel>
-                    <Select value={'V1'} labelId='cluster-label' className='cluster'>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                    <Select value={props.data.clusterKey} labelId='cluster-label' className='cluster'>
+                        <MenuItem value={props.data.clusterKey}>{props.data.clusterValue}</MenuItem>
+                        <MenuItem value={'C2'}>Cluster Index - 2</MenuItem>
+                        <MenuItem value={'C3'}>Cluster Index - 3</MenuItem>
+                        <MenuItem value={'C4'}>Cluster Index - 4</MenuItem>
+                        <MenuItem value={'C5'}>Cluster Index - 5</MenuItem>
+                        <MenuItem value={'C5'}>Cluster Index - 6</MenuItem>
+                        <MenuItem value={'C5'}>Cluster Index - 7</MenuItem>
+                        <MenuItem value={'C5'}>Cluster Index - 8</MenuItem>
+                        <MenuItem value={'C5'}>Cluster Index - 9</MenuItem>
+                        <MenuItem value={'C5'}>Cluster Index - 10</MenuItem>
+                        
                     </Select>
                 </Grid>
             </Grid>

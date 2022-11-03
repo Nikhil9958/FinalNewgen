@@ -16,7 +16,16 @@ import Card from '../Card/Card';
 const defaultFixedBoxValue = {
   versionKey:'V1',
   versionValue:'V1',
-  isDeletable : false
+  isDeletable : false,
+
+  timeStampKey:'T1',
+  timeStampValue:'23/08/2022 1:54pm',
+
+  algorithmKey:'RFC',
+  algorithmValue:'RFC',
+
+  clusterKey:'C1',
+  clusterValue:'Cluster Index - 1'
 }
 
 function TabPanel(props) {
@@ -78,7 +87,7 @@ export default function BasicTabs() {
       <TabPanel value={value} index={1} className='card-container'>
         <div style={{ display: 'flex' }}>
           <div className='addAlgorithm'>
-            <div style={{ height: '100%', width: '100%' }}>
+            <div className='addAlgorithmSubContainer'>
               <Button variant="contained" className='addButton'><AddIcon fontSize='large' /></Button>
               <p className='addAlgoText'>Add Algorithm</p>
             </div>
