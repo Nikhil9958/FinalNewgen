@@ -1,0 +1,36 @@
+.basictabs {
+    
+}
+
+
+.downloadBtn {
+    background: #1492E6 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+    width: 108px;
+    border: none;
+    color: white;
+    height: 32px;
+    float: right;
+    margin: 10px;
+  
+
+}
+.viewPipeline {
+    float: right;
+    margin-right: 32px;
+}
+
+
+#downloadBtnId {
+    background: #1492E6 0% 0% no-repeat padding-box;
+    color: #FFFFFF;
+    opacity: 1;
+}
+.card-container {
+    background: #FAFAFA 0% 0% no-repeat padding-box;
+    border: 1px solid #DDDDDD;
+    opacity: 1;
+    height: 100%;
+
+}
