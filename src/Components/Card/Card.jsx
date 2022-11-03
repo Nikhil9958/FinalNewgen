@@ -34,6 +34,7 @@ const Card = (props) => {
                     <InputLabel id="algorithm-label" className='formLabel'>Algorithm</InputLabel>
                     <Select value={props.data.algorithmKey} labelId='algorithm-label' className='algorithm'>
                         <MenuItem value={props.data.algorithmKey}>{props.data.algorithmValue}</MenuItem>
+                        {props.data.algorithmKey ? <MenuItem value={props.data.algorithmKey}>{props.data.algorithmValue}</MenuItem>:<MenuItem value='RFC'>RFC</MenuItem>}
                     </Select>
                 </Grid>
                 <Grid item>
