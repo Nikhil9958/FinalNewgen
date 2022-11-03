@@ -1,0 +1,16 @@
+.checkbox-container {
+    box-sizing: border-box;
+    width: 100%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #DDDDDD;
+    opacity: 1;
+    height: 42px;
+    font-weight: bold;
+    padding: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-items: auto;
+}
+.margin-right{
+    margin-right: 30px;
+}

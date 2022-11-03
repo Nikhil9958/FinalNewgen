@@ -8,24 +8,30 @@ import AddIcon from '@mui/icons-material/Add';
 import { Button, Grid, InputLabel } from '@mui/material';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import CheckBox from '../Checkbox/Checkbox'
+
 
 import './BasicTabs.css'
 import Card from '../Card/Card';
+
+import CssBaseline from '@mui/material/CssBaseline';
+
+
 // import Main from '../Main/Main'
 
 const defaultFixedBoxValue = {
-  versionKey:'V1',
-  versionValue:'V1',
-  isDeletable : false,
+  versionKey: 'V1',
+  versionValue: 'V1',
+  isDeletable: false,
 
-  timeStampKey:'T1',
-  timeStampValue:'23/08/2022 1:54pm',
+  timeStampKey: 'T1',
+  timeStampValue: '23/08/2022 1:54pm',
 
-  algorithmKey:'RFC',
-  algorithmValue:'RFC',
+  algorithmKey: 'RFC',
+  algorithmValue: 'RFC',
 
-  clusterKey:'C1',
-  clusterValue:'Cluster Index - 1'
+  clusterKey: 'C1',
+  clusterValue: 'Cluster Index - 1'
 }
 
 function TabPanel(props) {
@@ -69,22 +75,23 @@ export default function BasicTabs() {
   };
 
   return (
-    <Box sx={{ padding: '0%' }} className='basictabs'>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" style={{ display: 'inline-block' }}>
-          <Tab label="Best Model" {...a11yProps(0)} />
-          <Tab label="Comparision" {...a11yProps(1)} />
-          <Tab label="All Models" {...a11yProps(2)} />
-        </Tabs>
+    // <Box className='basictabs'>
+    <>      
+    <Box sx={{padding:'0px', borderBottom: 1, borderColor: 'divider' }}>
+      <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" style={{ display: 'inline-block' }}>
+        <Tab label="Best Model" {...a11yProps(0)} />
+        <Tab label="Comparision" {...a11yProps(1)} />
+        <Tab label="All Models" {...a11yProps(2)} />
+      </Tabs>
 
-        <button className='downloadBtn'>Download <select name="types" id="downloadBtnId"></select> </button>
-        <p className='viewPipeline'>View Pipeline</p>
+      <button className='downloadBtn'>Download <select name="types" id="downloadBtnId"></select> </button>
+      <p className='viewPipeline'>View Pipeline</p>
 
-      </Box>
+    </Box>
       <TabPanel value={value} index={0}>
         Best Model
       </TabPanel>
-      <TabPanel value={value} index={1} className='card-container'>
+      <TabPanel value={value} index={1} className='card-container' sx={{ padding: '0px' }}>
         <div style={{ display: 'flex' }}>
           <div className='addAlgorithm'>
             <div className='addAlgorithmSubContainer'>
@@ -93,13 +100,17 @@ export default function BasicTabs() {
             </div>
           </div>
 
-          <Card data = {defaultFixedBoxValue} />
+          <Card data={defaultFixedBoxValue} />
         </div>
+        <CheckBox />
       </TabPanel>
       <TabPanel value={value} index={2}>
         All Models
       </TabPanel>
+    </>
 
-    </Box>
+    // </Box>
   );
 }
+
+
