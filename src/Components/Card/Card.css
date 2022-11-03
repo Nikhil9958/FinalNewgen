@@ -1,0 +1,65 @@
+.fixedCard {
+    top: 113px;
+    left: 198px;
+    width: 342px;
+    height: 234px;
+    background: #FAFAFA 0% 0% no-repeat padding-box;
+    border: 1px solid #DDDDDD;
+    opacity: 1;
+    padding: 0.5em 1em 1.5em 1.5em;
+    box-sizing: border-box;
+}
+
+.version {
+    /* Layout Properties */
+    width: 69px;
+    height: 34px;
+    /* UI Properties */
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    border: 1px solid #CFDBE6;
+    border-radius: 6px;
+    opacity: 1;
+}
+
+.timeStamp {
+    width: 213px;
+    height: 34px;
+    /* UI Properties */
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    border: 1px solid #CFDBE6;
+    border-radius: 6px;
+    opacity: 1;
+}
+
+.algorithm {
+    width: 294px;
+    height: 34px;
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #CFDBE6;
+    border-radius: 6px;
+    opacity: 1;
+}
+
+.cluster {
+    width: 294px;
+    height: 34px;
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #CFDBE6;
+    border-radius: 6px;
+    opacity: 1;
+}
+
+
+.cardCloseBtn {
+    float: right;
+}
+
+.formLabel {
+    text-align: left;
+    font: 13px Roboto;
+    letter-spacing: -0.42px;
+    color: #333646;
+    opacity: 1;
+}

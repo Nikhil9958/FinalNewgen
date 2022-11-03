@@ -4,8 +4,20 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import AddIcon from '@mui/icons-material/Add';
+import { Button, Grid, InputLabel } from '@mui/material';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+
 import './BasicTabs.css'
+import Card from '../Card/Card';
 // import Main from '../Main/Main'
+
+const defaultFixedBoxValue = {
+  versionKey:'V1',
+  versionValue:'V1',
+  isDeletable : false
+}
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -55,16 +67,25 @@ export default function BasicTabs() {
           <Tab label="Comparision" {...a11yProps(1)} />
           <Tab label="All Models" {...a11yProps(2)} />
         </Tabs>
-        
+
         <button className='downloadBtn'>Download <select name="types" id="downloadBtnId"></select> </button>
-          <p className='viewPipeline'>View Pipeline</p>
-       
+        <p className='viewPipeline'>View Pipeline</p>
+
       </Box>
       <TabPanel value={value} index={0}>
         Best Model
       </TabPanel>
       <TabPanel value={value} index={1} className='card-container'>
-        {/* <Main /> */}
+        <div style={{ display: 'flex' }}>
+          <div className='addAlgorithm'>
+            <div style={{ height: '100%', width: '100%' }}>
+              <Button variant="contained" className='addButton'><AddIcon fontSize='large' /></Button>
+              <p className='addAlgoText'>Add Algorithm</p>
+            </div>
+          </div>
+
+          <Card data = {defaultFixedBoxValue} />
+        </div>
       </TabPanel>
       <TabPanel value={value} index={2}>
         All Models
