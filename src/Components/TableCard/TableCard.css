@@ -1,0 +1,12 @@
+.tableCard {
+    width: 340px;
+    /* height: 227px; */
+    /* border: 1px solid #DDDDDD; */
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.tableCardContent{
+    font-weight: 100;
+}

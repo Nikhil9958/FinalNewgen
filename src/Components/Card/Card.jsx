@@ -8,10 +8,11 @@ import './Card.css'
 
 const Card = (props) => {
     const handleCardClose = () => {
-        console.log("clicked!");
-        console.log(props);
-        const filteredCards = props.allCards.filter((card) => card.id !== props.name );
-        props.removeCard(filteredCards);
+        // console.log("clicked!");
+        // console.log(props);
+        // const filteredCards = props.allCards.filter((card) => card.id !== props.name);
+        // props.removeCard(filteredCards);
+        props.removeCard(props.name);
     }
 
     return (
@@ -34,13 +35,15 @@ const Card = (props) => {
                     <InputLabel id="algorithm-label" className='formLabel'>Algorithm</InputLabel>
                     <Select value={props.data.algorithmKey} labelId='algorithm-label' className='algorithm'>
                         <MenuItem value={props.data.algorithmKey}>{props.data.algorithmValue}</MenuItem>
-                        {props.data.algorithmKey ? <MenuItem value={props.data.algorithmKey}>{props.data.algorithmValue}</MenuItem>:<MenuItem value='RFC'>RFC</MenuItem>}
+                        {props.data.algorithmKey ? <MenuItem value={props.data.algorithmKey}>{props.data.algorithmValue}</MenuItem> : <MenuItem value='RFC'>RFC</MenuItem>}
                     </Select>
                 </Grid>
                 <Grid item>
                     <InputLabel id="cluster-label" className='formLabel'>Cluster</InputLabel>
-                    <Select value={props.data.clusterKey} labelId='cluster-label' className='cluster'>
-                        {props.data.clusterKey ? <MenuItem value={props.data.clusterKey}>{props.data.clusterValue}</MenuItem>:<MenuItem value='C1'>Cluster Index - 1</MenuItem>}
+                    <Select value={props.data.clusterKey} labelId='cluster-label' className='cluster' MenuProps={{
+                        PaperProps : {style:{maxHeight:'190px'}}
+                    }}>
+                        {props.data.clusterKey ? <MenuItem value={props.data.clusterKey}>{props.data.clusterValue}</MenuItem> : <MenuItem value='C1'>Cluster Index - 1</MenuItem>}
                         <MenuItem value={'C2'}>Cluster Index - 2</MenuItem>
                         <MenuItem value={'C3'}>Cluster Index - 3</MenuItem>
                         <MenuItem value={'C4'}>Cluster Index - 4</MenuItem>
@@ -58,4 +61,4 @@ const Card = (props) => {
     )
 }
 
-export default Card
+export default Card;

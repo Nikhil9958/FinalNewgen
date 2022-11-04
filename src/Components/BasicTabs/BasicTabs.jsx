@@ -17,6 +17,7 @@ import './BasicTabs.css'
 import Card from '../Card/Card';
 
 import CssBaseline from '@mui/material/CssBaseline';
+import BasicTable from '../BasicTable/BasicTable';
 
 
 // import Main from '../Main/Main'
@@ -71,7 +72,7 @@ function a11yProps(index) {
 
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
-
+  
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -80,11 +81,14 @@ export default function BasicTabs() {
   const [date, setDate] = useState('');
   const [algorithm, setAlgorithm] = useState('');
   const [cluster, setCluster] = useState('');
+  const [tableCardData, setTableCardData] = useState([]);
+
   console.log(version, date, algorithm, cluster);
 
   const handleClickAdd = () => {
+    var id = uuidv4();
     setDataArray([...dataArray, {
-      id: uuidv4(),
+      id: id,
       // 'version': version,
       // 'timeStamp': date,
       // 'algorithm': algorithm,
@@ -103,7 +107,27 @@ export default function BasicTabs() {
       // clusterKey: 'C1',
       // clusterValue: 'Cluster Index - 1'
     }])
+    const tableData = {
+      id:id,
+      Precesion:'0.34324',
+      Timestamp:'Oct 20,2020 ; 02:23 pm',
+      Scheduling:'Flase',
+      AreaUnderROC:'AreaUnderROC',
+      View_Type:'A',
+      giniCoefficient:'-0.32453',
+      AreaUnderPR:'0.77094'
+    }
+    setTableCardData([...tableCardData,tableData]);
   };
+
+  const handleCardClose = (id) =>{
+    console.log("###########");
+    console.log(id,tableCardData); 
+    const newFiltered = tableCardData.filter((card) => card.id !== id);
+    setTableCardData(newFiltered);
+    const newFilteredData = dataArray.filter((card) => card.id !== id);
+    setDataArray(newFilteredData);
+  }
   return (
     // <Box className='basictabs'>
     <>
@@ -121,7 +145,7 @@ export default function BasicTabs() {
       <TabPanel value={value} index={0}>
         Best Model
       </TabPanel>
-      <TabPanel value={value} index={1} className='card-container' sx={{ padding: '0px' }}>
+      <TabPanel value={value} index={1} className='card-container'>
         <div style={{ display: 'flex' }}>
           <div className='addAlgorithm'>
             <div className='addAlgorithmSubContainer'>
@@ -129,24 +153,29 @@ export default function BasicTabs() {
               <p className='addAlgoText'>Add Algorithm</p>
             </div>
           </div>
-
-          <Card data={defaultFixedBoxValue} />
-          <div style={{ width: '100%', display: 'flex' }}>
-            {
-              dataArray.map(curr => (
-                <Card
-                  key={curr.id}
-                  name={curr.id}
-                  data={curr}
-                  allCards = {dataArray}
-                  removeCard = {setDataArray}
-                />
-              ))
-            }
-
+          <div className='cards-subcontainer' sx={{ '&:first-child ': { padding: '1.5em' } }}>
+            <Card data={defaultFixedBoxValue} className='fixed-card-container' />
+            <div style={{ width: '100%', display: 'flex' }}>
+              {
+                dataArray.map(curr => (
+                  <Card
+                    key={curr.id}
+                    name={curr.id}
+                    data={curr}
+                    allCards={dataArray}
+                    removeCard={handleCardClose}
+                    
+                  />
+                ))
+              }
+            </div>
           </div>
         </div>
         <CheckBox />
+        <div className='matrices'>
+              Matrices
+        </div>
+        <BasicTable data={tableCardData} />
       </TabPanel>
       <TabPanel value={value} index={2}>
         All Models
